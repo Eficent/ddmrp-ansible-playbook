@@ -1,0 +1,30 @@
+- name: Odoo 10
+  hosts: odoo10
+  roles:
+    - postgresql
+    - ansible-odoo
+    - ansible-odoo-nginx
+    - ansible-role-certbot    
+  vars:
+    # [postgresql]
+    - postgresql_version: 9.6
+    # [odoo]
+    - odoo_version: 10.0
+    - odoo_install_type: pip
+    - odoo_config_unaccent: True
+    - odoo_config_admin_passwd: SuPerPassWorD
+    - odoo_pip_requirements_url: https://raw.githubusercontent.com/Eficent/ddmrp-pip-requirements/10.0/requirements.txt
+    - odoo_config_data_dir: "/home/odoo/data"
+    - odoo_config_workers: 4
+    - odoo_config_proxy_mode: True
+    # [ridingbytes_nginx]
+    - nginx_odoo_server: "ddmrp10.eficent.io"
+    - ssl_certificate: /etc/letsencrypt/live/ddmrp10.eficent.io/fullchain.pem
+    - ssl_certificate_key: /etc/letsencrypt/live/ddmrp10.eficent.io/privkey.pem
+    # [certbot]        
+    - certbot_create_if_missing: yes    
+    - certbot_certs:
+      - domains:
+        - ddmrp10.eficent.io
+  environment:
+     LC_ALL: en_US.UTF-8

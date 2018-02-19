@@ -1,0 +1,17 @@
+# from GitHub
+- name: ansible-odoo
+  src: https://github.com/OCA/ansible-odoo
+  version: origin/master
+
+- name: postgresql
+  src: https://github.com/ANXS/postgresql
+  
+- name: ansible-odoo-nginx
+  src: https://github.com/Eficent/ansible-odoo-nginx
+  
+- name: ansible-role-certbot
+  src: https://github.com/geerlingguy/ansible-role-certbot
+
+- name: HanXHX.firewall
+  src: https://github.com/HanXHX/ansible-firewall.git
+
